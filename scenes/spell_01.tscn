@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://badl0klu3edaj"]
+
+[ext_resource type="Texture2D" uid="uid://bab2ivflnodh8" path="res://assets/Spell_02.png" id="1_d0jsb"]
+[ext_resource type="Script" uid="uid://dv4nyph0kt4nx" path="res://scripts/spell_01.gd" id="1_w24up"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w24up"]
+atlas = ExtResource("1_d0jsb")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kga4s"]
+atlas = ExtResource("1_d0jsb")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2cku"]
+atlas = ExtResource("1_d0jsb")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yltp5"]
+atlas = ExtResource("1_d0jsb")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73ktc"]
+atlas = ExtResource("1_d0jsb")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uttbn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w24up")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kga4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2cku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yltp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73ktc")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w24up"]
+radius = 18.0
+
+[node name="spell_01" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_w24up")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, 0)
+sprite_frames = SubResource("SpriteFrames_uttbn")
+animation = &"fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+shape = SubResource("CircleShape2D_w24up")
+
+[node name="Life" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Life" to="." method="_on_timer_timeout"]

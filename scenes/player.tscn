@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://374r71a6hyho"]
 
-[ext_resource type="Texture2D" uid="uid://da4snc07kfgas" path="res://assets/TheWizard.png" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://gampsf28ari5" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://gampsf28ari5" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cwfatvvw7ssgn" path="res://assets/tile_0084.png" id="2_g2els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
 
@@ -10,10 +10,14 @@ motion_mode = 1
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3vyb7")
+texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3vyb7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+limit_left = -15
+limit_top = -15
+limit_right = 1165
+limit_bottom = 665

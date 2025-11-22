@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=12 format=4 uid="uid://brsbknv3a2k8q"]
 
-[ext_resource type="Texture2D" uid="uid://djwovqxj6fsyo" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-000.png" id="1_86k24"]
+[ext_resource type="Texture2D" uid="uid://djwovqxj6fsyo" path="res://assets/panel-border-000.png" id="1_86k24"]
 
 [sub_resource type="Image" id="Image_wttau"]
 data = {
