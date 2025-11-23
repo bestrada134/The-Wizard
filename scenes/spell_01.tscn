@@ -52,12 +52,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w24up"]
-radius = 18.0
+radius = 14.999998
 
-[node name="spell_01" type="CharacterBody2D"]
+[node name="spell" type="Node2D"]
 scale = Vector2(0.2, 0.2)
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_w24up")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -65,12 +63,16 @@ position = Vector2(-10, 0)
 sprite_frames = SubResource("SpriteFrames_uttbn")
 animation = &"fire"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 0)
-shape = SubResource("CircleShape2D_w24up")
-
 [node name="Life" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
+[node name="spell" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spell"]
+shape = SubResource("CircleShape2D_w24up")
+
 [connection signal="timeout" from="Life" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="spell" to="." method="_on_spell_body_entered"]

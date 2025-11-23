@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dxhwwum02p4v0"]
+[gd_scene load_steps=23 format=3 uid="uid://dxhwwum02p4v0"]
 
 [ext_resource type="Script" uid="uid://dohgvweev5a3j" path="res://scripts/igui.gd" id="1_ahce3"]
 [ext_resource type="Texture2D" uid="uid://bnujrv7c28jw3" path="res://assets/mouse_left_outline.png" id="1_ofngj"]
@@ -29,21 +29,17 @@ region_rect = Rect2(148, 13, 32, 16)
 
 [sub_resource type="Animation" id="Animation_esodu"]
 length = 0.001
-
-[sub_resource type="Animation" id="Animation_drktx"]
-resource_name = "fireball"
-length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureProgressBar:value")
+tracks/0/path = NodePath("../Special/TextureProgressBar:value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [100.0, 0.0]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_jo7db"]
@@ -65,8 +61,44 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_imje0"]
 _data = {
 &"RESET": SubResource("Animation_esodu"),
-&"fireball": SubResource("Animation_drktx"),
 &"special": SubResource("Animation_jo7db")
+}
+
+[sub_resource type="Animation" id="Animation_imje0"]
+resource_name = "fireball"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("abilities/HBoxContainer/Fireball/TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [100.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7ih4w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("abilities/HBoxContainer/Fireball/TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_006vr"]
+_data = {
+&"RESET": SubResource("Animation_7ih4w"),
+&"fireball": SubResource("Animation_imje0")
 }
 
 [node name="IGUI" type="Control"]
@@ -410,7 +442,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_imje0")
 }
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_006vr")
+}
+
 [connection signal="pressed" from="upgrades/VBoxContainer/HBoxContainer2/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="upgrades/VBoxContainer/HBoxContainer2/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="upgrades/VBoxContainer/HBoxContainer2/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]

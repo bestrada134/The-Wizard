@@ -1,6 +1,5 @@
 extends Area2D
 
-
 const SPEED: float = 150.0
 var dir :Vector2
 

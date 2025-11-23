@@ -8,6 +8,7 @@ const FIREBALL = preload("res://scenes/fireball.tscn")
 var max_special: int = 3
 
 
+
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("left", "right", "up","down")
 	velocity = direction * Global.player_speed

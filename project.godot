@@ -23,6 +23,10 @@ Global="*res://scripts/global.gd"
 
 mouse_cursor/custom_image="uid://dpn444mr6ffsw"
 
+[global_group]
+
+Player=""
+
 [input]
 
 left={

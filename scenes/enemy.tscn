@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b74twu3ioc1h4"]
+
+[ext_resource type="Script" uid="uid://bjyfp03tildex" path="res://scripts/enemy_01.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://er3tvmsi382t" path="res://assets/tile_0087.png" id="2_4ra3w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 76.00658
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
+
+[node name="enemy" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_md0e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5uy6h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4ra3w")
+
+[node name="Detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_4ra3w")
+
+[connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]
+[connection signal="body_exited" from="Detect" to="." method="_on_detect_body_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

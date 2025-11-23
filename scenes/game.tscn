@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://bf2ynain55q8"]
+[gd_scene load_steps=7 format=4 uid="uid://bf2ynain55q8"]
 
 [ext_resource type="Texture2D" uid="uid://b22rui3oi4h08" path="res://assets/tilemap_packed.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://374r71a6hyho" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dxhwwum02p4v0" path="res://scenes/igui.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://djoxaaln0nj0" path="res://scenes/spawner.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -237,3 +238,6 @@ offset_bottom = -3.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
+
+[node name="Spawner" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(559, 139)

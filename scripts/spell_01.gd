@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 const SPEED: float = 150.0
 var dir :Vector2
@@ -10,4 +10,8 @@ func _process(delta: float) -> void:
 	position += dir * SPEED * delta
 
 func _on_timer_timeout() -> void:
+	queue_free()
+
+
+func _on_spell_body_entered(_body: Node2D) -> void:
 	queue_free()
