@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmdhay2aqq6mn"]
+[gd_scene load_steps=5 format=3 uid="uid://cmdhay2aqq6mn"]
 
 [ext_resource type="Texture2D" uid="uid://cn4q03fl8mjhw" path="res://assets/back2.png" id="1_he1sj"]
+[ext_resource type="Script" uid="uid://coa24gblx3632" path="res://scripts/start_screen.gd" id="1_r2jwc"]
 [ext_resource type="FontFile" uid="uid://dsggedrekwe8u" path="res://assets/MightySouly-lxggD.ttf" id="2_r2jwc"]
 [ext_resource type="Theme" uid="uid://brsbknv3a2k8q" path="res://assets/buttons.tres" id="3_hm208"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r2jwc")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -71,11 +73,11 @@ custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/separation = 30
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(80, 20)
+custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -83,8 +85,15 @@ theme = ExtResource("3_hm208")
 theme_override_fonts/font = ExtResource("2_r2jwc")
 text = "Start"
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+theme = ExtResource("3_hm208")
+theme_override_fonts/font = ExtResource("2_r2jwc")
+text = "upgrades"
+
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(80, 20)
+custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -93,10 +102,14 @@ theme_override_fonts/font = ExtResource("2_r2jwc")
 text = "Credits"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(80, 20)
+custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_hm208")
 theme_override_fonts/font = ExtResource("2_r2jwc")
 text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED: float = 100.0
+const SPEED: float = 150.0
 var dir :Vector2
 
 func _ready() -> void:
