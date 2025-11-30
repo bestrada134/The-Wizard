@@ -1,7 +1,7 @@
 extends Node2D
 
 const knight = preload("res://scenes/enemy.tscn")
-var enemy_limit = 5
+var enemy_limit = 20
 
 func _ready() -> void:
 	pass # Replace with function body.

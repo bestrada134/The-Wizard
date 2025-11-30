@@ -1,6 +1,7 @@
 extends Node
 
 #player upgrades (further into)
+var player_health = 100
 
 #in game upgrades
 var player_speed = 100

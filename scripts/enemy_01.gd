@@ -22,7 +22,7 @@ func _on_detect_body_exited(body: Node2D) -> void:
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.name == "spell":
 		take_damage(Global.basic + Global.spell_damage)
-	if area.name == "Fireball":
+	if area.name == "Fireball" or area.name == "AoE":
 		take_damage(Global.fireball + Global.spell_damage)
 
 func take_damage(dmg):

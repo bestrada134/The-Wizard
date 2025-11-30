@@ -40,3 +40,9 @@ func _process(_delta: float) -> void:
 		spell.global_position = global_position
 		spell.dir = shoot_direction
 		get_tree().root.add_child(spell)
+
+
+func _on_hitbox_area_entered(_area: Area2D) -> void:
+	Global.player_health -= 5
+	print(Global.player_health)
+	

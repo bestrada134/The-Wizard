@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b74twu3ioc1h4"]
+[gd_scene load_steps=6 format=3 uid="uid://ca0i8pcvvew5t"]
 
-[ext_resource type="Script" uid="uid://bjyfp03tildex" path="res://scripts/enemy_01.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://er3tvmsi382t" path="res://assets/tile_0087.png" id="2_4ra3w"]
+[ext_resource type="Script" uid="uid://bjyfp03tildex" path="res://scripts/enemy_01.gd" id="1_ellgi"]
+[ext_resource type="Texture2D" uid="uid://dkbefqdjqbbk1" path="res://assets/tile_0097.png" id="2_ellgi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
 
@@ -14,13 +14,13 @@ radius = 76.00658
 collision_layer = 7
 collision_mask = 7
 motion_mode = 1
-script = ExtResource("1_md0e3")
+script = ExtResource("1_ellgi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5uy6h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_4ra3w")
+texture = ExtResource("2_ellgi")
 
 [node name="Detect" type="Area2D" parent="."]
 

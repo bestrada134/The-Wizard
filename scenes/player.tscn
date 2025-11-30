@@ -1,9 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://374r71a6hyho"]
+[gd_scene load_steps=5 format=3 uid="uid://374r71a6hyho"]
 
 [ext_resource type="Script" uid="uid://gampsf28ari5" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cwfatvvw7ssgn" path="res://assets/tile_0084.png" id="2_g2els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vyb7"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 12.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 motion_mode = 1
@@ -13,4 +17,15 @@ script = ExtResource("1_g2els")
 texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_3vyb7")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_g2els")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

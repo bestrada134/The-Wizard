@@ -51,6 +51,7 @@ script = ExtResource("1_ik2nu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_30a77")
+autoplay = "default"
 frame_progress = 0.6171358
 
 [node name="Timer" type="Timer" parent="."]
