@@ -29,4 +29,6 @@ func take_damage(dmg):
 	Health -= dmg
 	if Health <= 0:
 		queue_free()
+		Global.player_exp += 5
+		Global.total_killed += 1
 	

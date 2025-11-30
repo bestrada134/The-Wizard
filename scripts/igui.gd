@@ -3,7 +3,10 @@ extends Control
 @onready var animation = $AnimationPlayer
 @onready var animation2= $AnimationPlayer2
 @onready var upgrades = $upgrades
-var gui_visible = false
+@onready var health_label = $player_state/HBoxContainer/Health
+@onready var mana_label = $player_state/HBoxContainer/Mana
+@onready var exp_label = $player_state/HBoxContainer/Exp
+var gui_visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -17,9 +20,9 @@ func _process(_delta: float) -> void:
 
 
 func display_upgrades():
-	gui_visible = !gui_visible
 	get_tree().paused = gui_visible
 	upgrades.visible = gui_visible
+	gui_visible = !gui_visible
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	Global.play_special = true
@@ -39,3 +42,8 @@ func _on_button_3_pressed() -> void:
 
 func _on_animation_player_2_animation_finished(_anim_name: StringName) -> void:
 	Global.play_fireball = true
+
+func update_stats():
+	health_label.text = "Health: " + str(Global.player_health) + "/100"
+	mana_label.text = "Mana: " + str(Global.player_mana) + "/100"
+	exp_label.text = "Exp: " + str(Global.player_exp) + "/" + str(Global.player_max_exp)

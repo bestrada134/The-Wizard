@@ -114,13 +114,13 @@ script = ExtResource("1_ahce3")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.66
+anchor_top = 0.55200005
 anchor_right = 0.5
-anchor_bottom = 0.66
+anchor_bottom = 0.55200005
 offset_left = -250.0
-offset_top = 120.31998
+offset_top = 190.30396
 offset_right = 250.0
-offset_bottom = 220.31998
+offset_bottom = 290.30396
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -222,7 +222,9 @@ grow_vertical = 0
 texture = ExtResource("3_63ukd")
 
 [node name="upgrades" type="MarginContainer" parent="."]
+process_mode = 3
 visible = false
+z_index = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -435,6 +437,39 @@ process_mode = 3
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_sbhqi")
+
+[node name="player_state" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 156.0
+offset_right = 200.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="player_state"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Health" type="Label" parent="player_state/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5127288, 0.211546, 0.22052097, 1)
+text = "Health: 100/100"
+
+[node name="Mana" type="Label" parent="player_state/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5525093, 0.36663327, 0.84826154, 1)
+text = "Mana:100/100"
+
+[node name="Exp" type="Label" parent="player_state/HBoxContainer"]
+layout_mode = 2
+text = "Exp: 0/100"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../abilities/HBoxContainer/Fireball")
