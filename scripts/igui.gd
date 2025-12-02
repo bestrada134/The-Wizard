@@ -17,7 +17,8 @@ func _process(_delta: float) -> void:
 		animation2.play("fireball")
 		Global.play_fireball = false
 
-
+func _ready() -> void:
+	update_stats()
 
 func display_upgrades():
 	get_tree().paused = gui_visible
@@ -35,7 +36,6 @@ func _on_button_2_pressed() -> void:
 	animation.speed_scale += 0.1
 	display_upgrades()
 
-
 func _on_button_3_pressed() -> void:
 	Global.player_speed += 5
 	display_upgrades()
@@ -45,5 +45,5 @@ func _on_animation_player_2_animation_finished(_anim_name: StringName) -> void:
 
 func update_stats():
 	health_label.text = "Health: " + str(Global.player_health) + "/100"
-	mana_label.text = "Mana: " + str(Global.player_mana) + "/100"
+	mana_label.text = "Mana: " + str(Global.player_mana) + "/" + str(Global.player_max_mana)
 	exp_label.text = "Exp: " + str(Global.player_exp) + "/" + str(Global.player_max_exp)

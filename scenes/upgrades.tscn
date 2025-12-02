@@ -1,0 +1,161 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddrvtnbl8d6jn"]
+
+[ext_resource type="Script" uid="uid://cs6uty3gf7jwd" path="res://scripts/upgrades.gd" id="1_15hgd"]
+[ext_resource type="Texture2D" uid="uid://cn4q03fl8mjhw" path="res://assets/back2.png" id="1_a0ma6"]
+[ext_resource type="Theme" uid="uid://brsbknv3a2k8q" path="res://assets/buttons.tres" id="2_1xumc"]
+[ext_resource type="Texture2D" uid="uid://46du5pr1lulu" path="res://assets/ui_split.png" id="3_usctq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_15hgd"]
+texture = ExtResource("3_usctq")
+region_rect = Rect2(148, 13, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jcj7r"]
+texture = ExtResource("3_usctq")
+region_rect = Rect2(148, 47, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_js5n2"]
+texture = ExtResource("3_usctq")
+region_rect = Rect2(148, 13, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ef3hr"]
+texture = ExtResource("3_usctq")
+region_rect = Rect2(148, 47, 32, 16)
+
+[node name="Upgrades" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15hgd")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_a0ma6")
+
+[node name="Back Button" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -98.0
+offset_right = 150.0
+offset_bottom = -48.0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Back Button"]
+layout_mode = 2
+theme = ExtResource("2_1xumc")
+theme_override_styles/normal = SubResource("StyleBoxTexture_15hgd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jcj7r")
+text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -146.99998
+offset_right = 80.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 0.3019608)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Upgrade Points: 5"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Health"
+
+[node name="health" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_js5n2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ef3hr")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Damage"
+
+[node name="dmg" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_js5n2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ef3hr")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Mana"
+
+[node name="mana" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_js5n2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ef3hr")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stats:"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Health: 100"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Bonus Damage: 0"
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mana: 100"
+
+[connection signal="pressed" from="Back Button/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/health" to="." method="_on_health_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/dmg" to="." method="_on_dmg_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/mana" to="." method="_on_mana_pressed"]

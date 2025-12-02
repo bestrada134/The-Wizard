@@ -72,7 +72,7 @@ func check_end_round():
 
 func _on_timer_timeout() -> void:
 	if Global.player_mana < 100:
-		Global.player_mana += 1
+		Global.player_mana += 3
 	igui.update_stats()
 
 
