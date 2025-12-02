@@ -6,7 +6,13 @@ extends Control
 @onready var health_label = $player_state/HBoxContainer/Health
 @onready var mana_label = $player_state/HBoxContainer/Mana
 @onready var exp_label = $player_state/HBoxContainer/Exp
+@onready var death = $Death_Scene
 var gui_visible = true
+
+
+var url = "https://uselessfacts.jsph.pl/api/v2/facts/random"
+@onready var http = $Death_Scene/HTTPRequest
+@onready var fact = $Death_Scene/VBoxContainer/Fact
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -47,3 +53,19 @@ func update_stats():
 	health_label.text = "Health: " + str(Global.player_health) + "/100"
 	mana_label.text = "Mana: " + str(Global.player_mana) + "/" + str(Global.player_max_mana)
 	exp_label.text = "Exp: " + str(Global.player_exp) + "/" + str(Global.player_max_exp)
+
+
+func end_game():
+	get_tree().paused = true
+	http.request(url)
+	death.visible = true
+
+
+func _on_return_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+
+
+func _on_http_request_request_completed(_result: int, _response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	var data = JSON.parse_string(body.get_string_from_utf8())
+	print(data.text)
+	fact.text = "DID YOU KNOW: \n" + str(data.text)

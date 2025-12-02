@@ -244,6 +244,7 @@ position = Vector2(171, 326)
 position = Vector2(170, 129)
 
 [node name="Player" parent="." node_paths=PackedStringArray("igui") instance=ExtResource("2_yqjtg")]
+z_index = 2
 position = Vector2(566, 331)
 igui = NodePath("IGUI")
 

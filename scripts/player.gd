@@ -18,6 +18,7 @@ func _physics_process(_delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	check_end_round()
+	death()
 	if Global.player_exp >= Global.player_max_exp:
 		Global.player_exp = 0
 		Global.player_max_exp += 10
@@ -78,3 +79,7 @@ func _on_timer_timeout() -> void:
 
 func _on_rounds_timeout() -> void:
 	emit_signal("new_round")
+
+func death():
+	if Global.player_health <= 0:
+		igui.end_game()
